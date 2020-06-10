@@ -27,7 +27,7 @@ node {
 		// Stage 2: Authenticate to Salesforce using the jwt key.
 		// -------------------------------------------------------------------------
 		stage('Authorize to Salesforce') {
-			rc = command "${toolbelt} sfdx force:auth:jwt:grant --instanceurl ${SFDC_HOST}--clientid ${CONNECTED_APP_CONSUMER_KEY} --jwtkeyfile ${jwt_key_file} --username ${HUB_ORG}"
+			rc = command "${toolbelt} sfdx force:auth:jwt:grant --instanceurl ${SFDC_HOST} --clientid ${CONNECTED_APP_CONSUMER_KEY} --jwtkeyfile ${jwt_key_file} --username ${HUB_ORG}"
 		    if (rc != 0) {
 			    error 'Salesforce org authorization failed.'
 		    }
