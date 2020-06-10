@@ -47,7 +47,7 @@ node {
 		// Stage 4: Validate the Deployment
 		// -------------------------------------------------------------------------
 		stage('Validate Deployment') {
-		    rc = command "${toolbelt} sfdx force:mdapi:deploy --checkonly - 10 -d ${DEPLOYDIR} -l RunLocalTests -u ${HUB_ORG}"
+		    rc = command "${toolbelt} sfdx force:mdapi:deploy --checkonly -w 10 -d ${DEPLOYDIR} -l RunLocalTests -u ${HUB_ORG}"
 		    if (rc != 0) {
 		        error 'Salesforce deploy validation failed.'
 		    }
